@@ -1,6 +1,7 @@
 import {SafeAreaView} from "react-native-safe-area-context";
 import {Linking, Pressable, ScrollView, Text, TextInput, View} from "react-native";
 import { globalStyles } from "./src/styles/global.js";
+import CepPage from "./src/pages/cepPage";
 
 export default function App() {
 
@@ -20,7 +21,7 @@ export default function App() {
             <ScrollView>
                 <Text style={globalStyles.title}>Consulta por CEP</Text>
                 <View>
-
+                    <CepPage />
                 </View>
             </ScrollView>
         </SafeAreaView>
