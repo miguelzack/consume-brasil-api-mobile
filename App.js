@@ -1,22 +1,28 @@
-import api from "./src/services/api";
-import {useEffect, useState} from "react";
 import {SafeAreaView} from "react-native-safe-area-context";
 import {Linking, Pressable, ScrollView, Text, TextInput, View} from "react-native";
+import { globalStyles } from "./src/styles/global.js";
 
 export default function App() {
-    return (<SafeAreaView>
-        <Text>Consumindo a Brasil API</Text>
-        <Pressable onPress={() => Linking.openURL("https://brasilapi.com.br/docs")}>
-            <Text style={{color: "blue", textDecorationLine: "underline"}}>
-                Abrir site
+
+    return (
+        <SafeAreaView style={globalStyles.container}>
+            <Text style={globalStyles.header}>Consumindo a Brasil
+                <Text style={{color: "#2864ae"}}> A</Text>
+                <Text style={{color: "#46ad43"}}>P</Text>
+                <Text style={{color: "#fbbd0e"}}>I</Text>
             </Text>
-        </Pressable>
+            <Pressable onPress={() => Linking.openURL("https://brasilapi.com.br/docs")}>
+                <Text style={globalStyles.link}>
+                    Ver documentação
+                </Text>
+            </Pressable>
 
-        <ScrollView>
-            <Text>Olá, escolha a consulta que deseja realizar: </Text>
-            <View>
+            <ScrollView>
+                <Text style={globalStyles.title}>Consulta por CEP</Text>
+                <View>
 
-            </View>
-        </ScrollView>
-    </SafeAreaView>)
+                </View>
+            </ScrollView>
+        </SafeAreaView>
+    );
 }
