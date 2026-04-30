@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "consume-brasil-api-mobile",
-    "slug": "consume-brasil-api-mobile",
+    "name": "axios-mop",
+    "slug": "axios-mop",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,6 +24,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-asset"
+    ]
   }
 }
