@@ -1,7 +1,8 @@
-import api from "./src/services/api";
 import {useEffect, useState} from "react";
 import {SafeAreaView} from "react-native-safe-area-context";
 import {ScrollView, Text, TextInput, View} from "react-native";
+import { styles } from "./style.js";
+import api from "../../services/api";
 
 export default function CepPage() {
     const [rua, setRua] = useState(null);
@@ -25,24 +26,37 @@ export default function CepPage() {
         carregarRua();
     }, [pesquisa]);
 
-    return (<SafeAreaView style={globalStyles.container}>
-        <TextInput
-            style={globalStyles.input}
-            placeholder="Digite o CEP ou nome da rua"
-            value={pesquisa}
-            onChangeText={setPesquisa}
-        />
+    return (
+        <SafeAreaView style={styles.container}>
+            <TextInput
+                style={styles.input}
+                placeholder="Digite o CEP ou nome da rua"
+                value={pesquisa}
+                onChangeText={setPesquisa}
+            />
 
-        <Text style={globalStyles.titulo}>Resultado da pesquisa</Text>
+            <Text style={styles.titulo}>Resultado da pesquisa: </Text>
 
-        <ScrollView>
-            {rua && (<View style={globalStyles.card}>
-                <Text>CEP: {rua.cep}</Text>
-                <Text>Estado: {rua.state}</Text>
-                <Text>Cidade: {rua.city}</Text>
-                <Text>Bairro: {rua.neighborhood}</Text>
-                <Text>Rua: {rua.street}</Text>
-            </View>)}
-        </ScrollView>
-    </SafeAreaView>);
+            <ScrollView>
+                {rua && (<View style={styles.card}>
+                    <Text style={styles.cardInfo}>
+                        <Text style={{fontWeight: 700}}>CEP: </Text>{rua.cep}
+                    </Text>
+                    <Text style={styles.cardInfo}>
+                        <Text style={{fontWeight: 700}}>Estado: </Text>{rua.state}
+                    </Text>
+                    <Text style={styles.cardInfo}>
+                        <Text style={{fontWeight: 700}}>Cidade: </Text>{rua.city}
+                    </Text>
+                    <Text style={styles.cardInfo}>
+                        <Text style={{fontWeight: 700}}>Bairro: </Text>{rua.neighborhood}
+                    </Text>
+                    <Text style={styles.cardInfo}>
+                        <Text style={{fontWeight: 700}}>Rua: </Text>{rua.street}
+                    </Text>
+                </View>)}
+            </ScrollView>
+        </SafeAreaView>
+    );
+
 }
